@@ -15,7 +15,7 @@ class JWTAuthentication(authentication.BaseAuthentication):
         prefix, token = auth_data.decode('utf-8').split(' ')
 
         try:
-            payload = jwt.decode(token, settings.JWT_SECRET_KEY)
+            payload = jwt.decode(token, settings.JWT_SECRET_KEY, algorithms="HS256")
             user = User.objects.get(username=payload['username'])
             return user, token
 
@@ -26,4 +26,4 @@ class JWTAuthentication(authentication.BaseAuthentication):
             raise exceptions.AuthenticationFailed(
                 'Your token is expired, login')
 
-        return super().authenticate(request)
+        # return super().authenticate(request)
