@@ -13,3 +13,6 @@ djangorestframework~=3.11.0
 requests~=2.25.1
 Markdown~=3.2.2
 Pygments~=2.7.1
+views~=0.3
+PyJWT~=2.1.0
+environ~=1.0
