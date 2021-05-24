@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'authentication',
     'contacts',
+    'corsheaders',
 ]
 
 SWAGGER_SETTINGS = {
@@ -56,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -125,9 +128,14 @@ USE_L10N = True
 
 USE_TZ = True
 
-DEBUG = False
-
-ALLOWED_HOSTS = ['https://django-rest-contacts.herokuapp.com/']
+## CORS
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8080",
+    "http://localhost:8000",
+    "http://127.0.0.1:9000"
+]
 
 #JWT
 load_dotenv()
