@@ -1,9 +1,7 @@
-
-
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-load_dotenv()
+import django_heroku
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -129,12 +127,15 @@ USE_TZ = True
 
 
 #JWT
+load_dotenv()
 JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
