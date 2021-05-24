@@ -125,19 +125,16 @@ USE_L10N = True
 
 USE_TZ = True
 
+DEBUG = False
+
+ALLOWED_HOSTS = ['https://django-rest-contacts.herokuapp.com/']
 
 #JWT
 load_dotenv()
 JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
 
-django_heroku.settings(locals())
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+django_heroku.settings(locals())
